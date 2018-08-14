@@ -5,25 +5,59 @@ using UnityEngine;
 public class PlatformController : RaycastController {
 
     public LayerMask passengerMask;
-    public Vector3 move;
-    public Vector2 minPosition;
-    public Vector2 maxPosition;
+
+    public Vector2 maxAplitude;
+    public Vector2 velocity;
+    Vector2 min;
+    Vector2 max;
 
 	protected override void Start() {
         base.Start();
-	}
+        velocity *= Time.deltaTime;
+        min = (Vector2)transform.position;
+        max = (Vector2)transform.position + maxAplitude;
+    }
 	
 	void Update () {
         UpdateRaycastOrigins();
-        Vector3 velocity = move * Time.deltaTime;
         MovePassengers(velocity);
-        if (transform.position.x <= minPosition.x || transform.position.y <= minPosition.y ||
-           transform.position.x >= maxPosition.x || transform.position.y >= maxPosition.y)
-        {
-            move = -move;
-        }
+        ChangeDirection();
         transform.Translate(velocity);
 	}
+
+    void ChangeDirection()
+    {
+        if (velocity.x != 0)
+        {
+            if (transform.position.x < min.x)
+            {
+                transform.position = new Vector2(min.x, transform.position.y);
+                velocity = -velocity;
+                return;
+            }
+            if (transform.position.x > max.x)
+            {
+                transform.position = new Vector2(max.x, transform.position.y);
+                velocity = -velocity;
+                return;
+            }
+        }
+        if (velocity.y != 0)
+        {
+            if (transform.position.y < min.y)
+            {
+                transform.position = new Vector2(transform.position.x, min.y);
+                velocity = -velocity;
+                return;
+            }
+            if (transform.position.y > max.y)
+            {
+                transform.position = new Vector2(transform.position.x, max.y);
+                velocity = -velocity;
+                return;
+            }
+        }
+    }
 
     void MovePassengers(Vector3 velocity)
     {

@@ -186,9 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 4
   timeToJumpApex: 0.4
-  wallJumpClimb: {x: 3, y: 16}
-  wallJumpOff: {x: 8.5, y: 7}
-  wallLeap: {x: 10, y: 16}
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
 --- !u!212 &385074954
@@ -493,9 +493,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 3.5
   timeToJumpApex: 0.4
-  wallJumpClimb: {x: 3, y: 16}
-  wallJumpOff: {x: 8.5, y: 7}
-  wallLeap: {x: 10, y: 16}
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
 --- !u!61 &923378677
@@ -712,9 +712,8 @@ MonoBehaviour:
   passengerMask:
     serializedVersion: 2
     m_Bits: 512
-  move: {x: 0, y: 0.9, z: 0}
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 30, y: 5}
+  maxAplitude: {x: 1, y: 3}
+  velocity: {x: 1, y: 1}
 --- !u!61 &1371916199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1015,7 +1014,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 758ff31f3ba9276479533160b84f922f, type: 2}
+  - {fileID: 2100000, guid: 8dfad21c999dfec4e8b8855ffe9dc80a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1049,7 +1048,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732338977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.33, y: 4.53, z: 0.051757812}
+  m_LocalPosition: {x: -5.74, y: -0.85, z: 0.051757812}
   m_LocalScale: {x: 1.1463356, y: 1.2785292, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
